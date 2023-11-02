@@ -1,11 +1,7 @@
-ARG BASE_IMAGE_PREFIX
-FROM ${BASE_IMAGE_PREFIX}mono
-
-# see hooks/post_checkout
-ARG ARCH
+FROM mono:6.12
 
 # HACK: don't fail when no qemu binary provided
-COPY .gitignore qemu-${ARCH}-static* /usr/bin/
+COPY .gitignore qemu-x86_64-static* /usr/bin/
 
 ARG OPENRA_RELEASE_VERSION=20231010
 ARG OPENRA_RELEASE
